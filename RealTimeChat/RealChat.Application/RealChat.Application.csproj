@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RealChat.Infrastructure\RealChat.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

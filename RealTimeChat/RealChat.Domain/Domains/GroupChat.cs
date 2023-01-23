@@ -1,0 +1,8 @@
+﻿using Base.Domain.CommonModels;
+
+namespace RealChat.Domain.Domains
+{
+    public class GroupChat : BaseEntity<int>
+    {
+    }
+}
