@@ -19,5 +19,6 @@ namespace RealChat.Domain.Domains
 
         public string Text => _text;
         public DateTimeOffset SentTime => _sentTime;
+
     }
 }

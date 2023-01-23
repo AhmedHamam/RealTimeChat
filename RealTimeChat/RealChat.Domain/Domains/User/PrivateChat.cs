@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RealChat.Domain.Domains.User
+﻿namespace RealChat.Domain.Domains.User
 {
     public class PrivateChat : Chat
     {
@@ -30,13 +24,14 @@ namespace RealChat.Domain.Domains.User
             _messages.Add(message);
         }
 
-        public void RemoveMessage(long userId,PrivateMessage message)
+        public void RemoveMessage(long userId, PrivateMessage message)
         {
             if (message is null)
                 throw new ArgumentNullException(nameof(message));
-             message.MarkAsDeleted(userId);
+            message.MarkAsDeleted(userId);
             _messages.Remove(message);
         }
+        
 
     }
 }

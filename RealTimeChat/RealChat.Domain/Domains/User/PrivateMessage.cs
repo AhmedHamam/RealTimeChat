@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RealChat.Domain.Domains.User
+﻿namespace RealChat.Domain.Domains.User
 {
     public class PrivateMessage : Message
     {
         private ApplicationUser _sender;
         private ApplicationUser _reciver;
-        
+
         private DateTimeOffset _recivedTime;
         private DateTimeOffset _seenTime;
 
         public PrivateMessage(string text, ApplicationUser sender, ApplicationUser reciver)
-            :base(text)
+            : base(text)
         {
             _sender = sender;
             _reciver = reciver;
