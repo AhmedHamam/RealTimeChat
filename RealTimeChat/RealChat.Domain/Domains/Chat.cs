@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Base.Domain.CommonModels;
 
 namespace RealChat.Domain.Domains
 {
-    public class Chat
+    public abstract class Chat : BaseEntity<long>
     {
+        List<Message> Messages { get; set; }
     }
 }

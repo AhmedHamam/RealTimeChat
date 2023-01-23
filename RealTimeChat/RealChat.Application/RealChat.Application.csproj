@@ -3,11 +3,22 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\RealChat.Infrastructure\RealChat.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Commands\Login\" />
+    <Folder Include="Commands\CreateGroup\" />
+    <Folder Include="Commands\RenameGroup\" />
+    <Folder Include="Queries\GetGroupChat\" />
+    <Folder Include="Queries\GetUserChat\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="11.1.0" />
   </ItemGroup>
 
 </Project>
