@@ -4,6 +4,7 @@ namespace Base.Domain.CommonModels
 {
     public class BaseEntity<T> : ISoftDelete<T>
     {
+        public int testt;
         public T Id { get; private set; }
         public bool IsDeleted { get; private set; }
         public DateTimeOffset? DeletedOn { get; private set; }
