@@ -2,6 +2,7 @@
 {
     public class UserActivity
     {
+        private long _id;
         private string _title;
         private string _description;
         private string _cssClass;
@@ -15,6 +16,11 @@
             _extraInfo = extraInfo;
         }
 
+        public long Id
+        {
+            get => _id;
+            private set => _id = value;
+        }
         public string Title
         {
             get => _title;

@@ -9,6 +9,7 @@ namespace RealChat.Infrastructure.Configurations
         public void Configure(EntityTypeBuilder<ApplicationUser> builder)
         {
             builder.ToTable("Users", "IdentitySchema");
+            builder.HasKey(x => x.Id);
 
             // Each User can have many entries in the UserRole join table
             builder.HasMany(e => e.UserRoles)

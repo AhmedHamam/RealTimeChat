@@ -9,6 +9,7 @@ namespace RealChat.Infrastructure.Configurations
         public void Configure(EntityTypeBuilder<UserClaim> builder)
         {
             builder.ToTable("UserClaims", "IdentitySchema");
+            //builder.HasKey(x => x.Id);
         }
     }
 }

@@ -9,6 +9,7 @@ namespace RealChat.Infrastructure.Configurations
         public void Configure(EntityTypeBuilder<Role> builder)
         {
             builder.ToTable("Roles", "IdentitySchema");
+            builder.HasKey(x => x.Id);
         }
     }
 }
