@@ -1,8 +1,8 @@
 ﻿using Base.Domain.CommonInterfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Reflection;
-using Microsoft.AspNetCore.Http;
 namespace Base.Infrastructure
 {
     public class ApplicationDbContext : DbContext
@@ -67,7 +67,7 @@ namespace Base.Infrastructure
         }
 
         #region Helper Methods
-        
+
         public void CheckAndUpdateEntities(int? userId)
         {
             ChangeTracker

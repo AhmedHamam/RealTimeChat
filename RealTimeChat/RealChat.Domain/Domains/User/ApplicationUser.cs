@@ -1,15 +1,13 @@
-﻿using Duende.IdentityServer.EntityFramework.Entities;
-using Microsoft.AspNetCore.Identity;
-using Ardalis.GuardClauses;
+﻿using Microsoft.AspNetCore.Identity;
 
 namespace RealChat.Domain.Domains.User
 {
     public enum Gender
     {
-        male=1,
-        female=2
+        male = 1,
+        female = 2
     }
-    public class ApplicationUser:IdentityUser<int>
+    public class ApplicationUser : IdentityUser<int>
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -20,6 +18,7 @@ namespace RealChat.Domain.Domains.User
         public string Status { get; set; }
         public string ConnectionId { get; set; }
         public string LastSeen { get; set; }
+
 
         private readonly HashSet<UserRole> _userRoles = new();
         private readonly HashSet<UserClaim> _claims = new();
@@ -49,9 +48,13 @@ namespace RealChat.Domain.Domains.User
             ConnectionId = null!;
             LastSeen = null!;
         }
-        
 
 
+        public HashSet<UserRole> UserRoles { get { return _userRoles; } }
+        public HashSet<UserClaim> Claims { get { return _claims; } }
+        public HashSet<UserActivity> UserActivities { get { return _activities; } }
+        public HashSet<UserLogin> UserLogins { get { return _logins; } }
+        public HashSet<UserToken> UserTokens { get { return _tokens; } }
 
 
     }

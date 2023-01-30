@@ -14,6 +14,6 @@ namespace RealChat.Domain.Domains.Groups
         private string _description;
         private GroupChat _groupChat;
         private GroupMembers _groupMembers;
-        
+
     }
 }

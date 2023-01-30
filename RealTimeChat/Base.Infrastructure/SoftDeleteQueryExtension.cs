@@ -1,8 +1,8 @@
-﻿using System.Linq.Expressions;
-using System.Reflection;
+﻿using Base.Domain.CommonInterfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Base.Domain.CommonInterfaces;
+using System.Linq.Expressions;
+using System.Reflection;
 
 namespace Base.Infrastructure
 {
