@@ -14,5 +14,10 @@ namespace Base.Domain.CommonModels
             DeletedOn = DateTime.UtcNow;
             DeletedBy = deletedBy;
         }
+
+        public void MarkAsNotDeleted()
+        {
+            IsDeleted = false;
+        }
     }
 }

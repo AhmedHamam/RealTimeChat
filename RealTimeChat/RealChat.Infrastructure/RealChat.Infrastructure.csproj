@@ -10,4 +10,8 @@
     <ProjectReference Include="..\RealChat.Domain\RealChat.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Configurations\" />
+  </ItemGroup>
+
 </Project>

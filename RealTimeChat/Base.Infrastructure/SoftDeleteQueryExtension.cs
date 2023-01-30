@@ -1,0 +1,46 @@
+﻿using System.Linq.Expressions;
+using System.Reflection;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Base.Domain.CommonInterfaces;
+
+namespace Base.Infrastructure
+{
+
+    public static class SoftDeleteQueryExtension
+    {
+        public static void GetOnlyNotDeletedEntities(this ModelBuilder builder)
+        {
+            foreach (var entityType in builder.Model.GetEntityTypes())
+            {
+                //other automated configurations left out
+                if (typeof(ISoftDelete<int>).IsAssignableFrom(entityType.ClrType))
+                {
+                    entityType.AddSoftDeleteQueryFilter();
+                }
+            }
+        }
+
+        private static void AddSoftDeleteQueryFilter(this IMutableEntityType entityData)
+        {
+            var methodToCall = typeof(SoftDeleteQueryExtension)
+                ?.GetMethod(nameof(GetSoftDeleteFilter), BindingFlags.NonPublic | BindingFlags.Static)
+                ?.MakeGenericMethod(entityData.ClrType);
+
+            var filter = methodToCall?.Invoke(null, Array.Empty<object>());
+
+            if (filter == null) return;
+            entityData.SetQueryFilter((LambdaExpression)filter);
+
+            entityData.AddIndex(entityData.FindProperty(nameof(ISoftDelete<int>.IsDeleted)) ??
+                                throw new InvalidOperationException());
+        }
+
+        private static LambdaExpression GetSoftDeleteFilter<TEntity>()
+            where TEntity : class, ISoftDelete<int>
+        {
+            Expression<Func<TEntity, bool>> filter = x => !x.IsDeleted;
+            return filter;
+        }
+    }
+}

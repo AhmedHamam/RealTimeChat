@@ -6,5 +6,6 @@
         public DateTimeOffset? DeletedOn { get; }
         public T DeletedBy { get; }
         public void MarkAsDeleted(T deletedBy);
+        public void MarkAsNotDeleted();
     }
 }
