@@ -1,25 +1,71 @@
+
+using Base.Infrastructure;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
+using RealChat.Infrastructure;
+using RealTimeChat.Helpers;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+#region Appsettings & env variables
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Configuration
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json", true, true) // Try reading from appsettings
+    .AddEnvironmentVariables(); // then override the existing env variables
+
+#endregion
+
+
+#region .Net Services
+
+builder.Services.AddControllersWithViews();
+builder.Services.AddControllers(options =>
+{
+    options.Conventions.Add(new RouteTokenTransformerConvention(new SlugifyParameterTransformer()));
+});
+
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+builder.Services.AddHttpContextAccessor();
+
+#endregion
+
+
+#region Base Packages
+
+//builder.Services.AddApplication();
+//builder.Services.AddInfrastructure(builder.Configuration);
+//builder.Services.AddBaseSwagger(builder.Configuration);
+//builder.Services.AddBaseApiVersioning();
+//builder.Services.AddExceptionHandling();
+
+#endregion
+
+#region Identity Solution
+
+builder.Services.AddScoped<IdentityDatabaseContext>();
+//builder.Services.AddHealthChecks().AddDbContextCheck<IdentityDatabaseContext>();
+builder.Services.AddIdentitySetup(builder.Configuration);
+//builder.Services.AddIdentityApplication();
+//builder.Services.AddIdentityInfrastructure(builder.Configuration);
+
+#endregion
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+#region Using Base Packages
+
+app.UseIdentitySetup();
+//app.UseExceptionHandling();
+//app.UseBaseSwagger(app.Configuration);
+
+#endregion
+
+
+using (var scope = app.Services.CreateScope())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    await scope.MigrateDatabase();
+    await scope.SeedDatabase();
 }
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
 
 app.Run();
