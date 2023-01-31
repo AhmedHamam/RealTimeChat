@@ -12,10 +12,9 @@ namespace RealChat.Infrastructure.Configurations
             builder.HasKey(x => x.Id);
 
             // Each User can have many entries in the UserRole join table
-            builder.HasMany(e => e.UserRoles)
-                .WithOne(e => e.User)
-                .HasForeignKey(ur => ur.UserId)
-                .IsRequired();
+            //builder.HasMany(e => e.UserRoles)
+            //    .HasForeignKey(ur => ur.UserId)
+            //    .IsRequired();
 
             builder.HasMany(e => e.Claims)
                 .WithOne(claim => claim.User)

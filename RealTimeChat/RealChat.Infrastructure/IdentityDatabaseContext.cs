@@ -1,11 +1,15 @@
 ﻿using Base.Infrastructure;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using RealChat.Domain.Domains.User;
 using System.Reflection;
 
 namespace RealChat.Infrastructure
 {
-    public class IdentityDatabaseContext : IdentityDbContext
+    public class IdentityDatabaseContext : IdentityDbContext<
+       ApplicationUser, Role, int,
+       UserClaim, UserRole, UserLogin,
+       RoleClaim, UserToken>
     {
         public IdentityDatabaseContext()
         {

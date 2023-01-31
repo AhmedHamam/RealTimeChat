@@ -10,6 +10,9 @@ namespace RealChat.Infrastructure.Configurations
         {
             builder.ToTable("RoleClaims", "IdentitySchema");
             builder.HasKey(x => x.Id);
+            builder.HasOne(x => x.Role).WithMany(x => x.RoleClaims)
+                .HasForeignKey(x => x.RoleId)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

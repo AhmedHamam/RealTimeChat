@@ -10,6 +10,7 @@ namespace RealChat.Infrastructure.Configurations
         {
             builder.ToTable("UserRoles", "IdentitySchema");
             builder.HasKey(x => new { x.UserId,x.RoleId });
+          
         }
     }
 }

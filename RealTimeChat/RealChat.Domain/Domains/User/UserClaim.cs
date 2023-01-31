@@ -4,6 +4,6 @@ namespace RealChat.Domain.Domains.User
 {
     public class UserClaim : IdentityUserClaim<int>
     {
-        public virtual ApplicationUser? User { get; set; }
+        public  ApplicationUser? User { get; set; }
     }
 }

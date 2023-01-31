@@ -11,6 +11,9 @@ namespace RealChat.Infrastructure.Configurations
         {
             builder.ToTable("UserLogins", "IdentitySchema");
             builder.HasKey(x => x.Id);
+            builder.HasOne(x => x.User).WithMany(x => x.UserLogins)
+                .HasForeignKey(x => x.UserId)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

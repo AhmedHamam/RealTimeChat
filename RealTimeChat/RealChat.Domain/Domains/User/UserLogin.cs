@@ -1,11 +1,15 @@
-﻿namespace RealChat.Domain.Domains.User
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace RealChat.Domain.Domains.User
 {
-    public class UserLogin
+    public class UserLogin : IdentityUserLogin<int>
     {
         public int Id { get; set; }
         public string LoginProvider { get; set; }
         public string ProviderKey { get; set; }
         public string ProviderDisplayName { get; set; }
+        [NotMapped]
         public int UserId { get; set; }
         public virtual ApplicationUser User { get; set; }
     }
