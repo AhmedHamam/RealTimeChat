@@ -44,7 +44,8 @@ builder.Services.AddHttpContextAccessor();
 #region Identity Solution
 
 builder.Services.AddScoped<IdentityDatabaseContext>();
-//builder.Services.AddHealthChecks().AddDbContextCheck<IdentityDatabaseContext>();
+//builder.Services.AddHealthChecks()
+//.AddDbContextCheck<IdentityDatabaseContext>();
 builder.Services.AddIdentitySetup(builder.Configuration);
 //builder.Services.AddIdentityApplication();
 //builder.Services.AddIdentityInfrastructure(builder.Configuration);
