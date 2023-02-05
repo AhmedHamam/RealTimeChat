@@ -1,4 +1,4 @@
-﻿namespace RealChat.Api
+﻿namespace RealChat.Api.Controllers
 {
     public class GroupChatController
     {
