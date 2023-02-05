@@ -19,7 +19,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installing
 
-1. Clone the repository: `git clone [repository link]`
+1. Clone the repository: `git clone [https://github.com/AhmedHamam/RealTimeChat.git]`
 2. Install the required packages: `dotnet restore`
 3. Run the application: `dotnet run`
 
