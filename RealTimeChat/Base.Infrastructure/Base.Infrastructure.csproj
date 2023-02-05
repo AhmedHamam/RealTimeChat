@@ -20,6 +20,7 @@
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	  </PackageReference>
     <ProjectReference Include="..\Base.Domain\Base.Domain.csproj" />
+    <ProjectReference Include="..\Base.Extensions\Base.Extensions.csproj" />
   </ItemGroup>
 
 </Project>

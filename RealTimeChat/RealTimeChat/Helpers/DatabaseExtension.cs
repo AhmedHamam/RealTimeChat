@@ -13,7 +13,7 @@ namespace RealTimeChat.Helpers
         public static async Task MigrateDatabase(this IServiceScope scope)
         {
             var identityDbContext = scope.ServiceProvider.GetRequiredService<IdentityDatabaseContext>();
-            await identityDbContext.Database.MigrateAsync();
+            //await identityDbContext.Database.MigrateAsync();
         }
 
         /// <summary>

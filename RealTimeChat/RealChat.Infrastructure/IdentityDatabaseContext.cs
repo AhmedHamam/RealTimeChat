@@ -1,4 +1,4 @@
-﻿using Base.Infrastructure;
+﻿using Base.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using RealChat.Domain.Domains.User;

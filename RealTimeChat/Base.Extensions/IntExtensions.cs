@@ -1,6 +1,6 @@
-﻿namespace Base.Infrastructure
+﻿namespace Base.Extensions
 {
-    public static class Extensions
+    public static class IntExtensions
     {
         public static int? ToIntOrNull(this string s)
         {

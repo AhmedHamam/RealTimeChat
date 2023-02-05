@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace Base.Infrastructure
+namespace Base.Infrastructure.Extensions
 {
 
     public static class SoftDeleteQueryExtension

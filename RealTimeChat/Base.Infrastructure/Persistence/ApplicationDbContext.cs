@@ -3,7 +3,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Reflection;
-namespace Base.Infrastructure
+using Base.Extensions;
+using Base.Infrastructure.Extensions;
+
+namespace Base.Infrastructure.Persistence
 {
     public class ApplicationDbContext : DbContext
     {
