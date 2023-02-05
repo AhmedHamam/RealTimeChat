@@ -4,11 +4,6 @@ namespace Base.Extensions;
 
 public static class ReflectionExtensions
 {
-    public static void SetPrivatePropertyValue<T>(this object obj, string propName, T val)
-    {
-        obj.GetType().GetField(propName, BindingFlags.Instance | BindingFlags.NonPublic)?.SetValue(obj, val);
-    }
-
     public static List<Type> GetTypesThatInheritsFromAnInterface(this Assembly assembly, Type interfaceType)
     {
         Type interfaceType2 = interfaceType;

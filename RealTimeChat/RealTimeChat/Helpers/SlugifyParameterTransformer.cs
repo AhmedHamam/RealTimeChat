@@ -4,7 +4,6 @@ namespace RealTimeChat.Helpers;
 
 public class SlugifyParameterTransformer : IOutboundParameterTransformer
 {
-    // <inheritdoc />
     public string? TransformOutbound(object? value)
     {
         return value == null

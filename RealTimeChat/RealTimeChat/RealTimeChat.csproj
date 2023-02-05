@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Base.Api\Base.Api.csproj" />
     <ProjectReference Include="..\RealChat.Application\RealChat.Application.csproj" />
     <ProjectReference Include="..\RealChat.Infrastructure\RealChat.Infrastructure.csproj" />
     <ProjectReference Include="..\RealTimeChat.Setup\RealTimeChat.Setup.csproj" />

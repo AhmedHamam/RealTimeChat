@@ -77,10 +77,6 @@ public static class HttpContextAccessorExtensions
     {
         context.Response.StatusCode = statusCode;
         context.Response.ContentType = "application/json";
-        //await context.Response.StartAsync(context.RequestAborted);
         await context.Response.WriteAsync(message, context.RequestAborted);
-        //await context.Response.CompleteAsync();
-        //context.Features.Get<IConnectionLifetimeFeature>()?.Abort();
-        // context.Abort();
     }
 }

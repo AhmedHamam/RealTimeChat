@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Base.Application\Base.Application.csproj" />
     <ProjectReference Include="..\RealChat.Infrastructure\RealChat.Infrastructure.csproj" />
   </ItemGroup>
 
