@@ -6,11 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Base.Application\Base.Application.csproj" />
-    <ProjectReference Include="..\RealChat.Infrastructure\RealChat.Infrastructure.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Commands\Login\" />
     <Folder Include="Commands\CreateGroup\" />
     <Folder Include="Commands\RenameGroup\" />
@@ -19,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="11.1.0" />
+    <ProjectReference Include="..\Base.Application\Base.Application.csproj" />
   </ItemGroup>
 
 </Project>

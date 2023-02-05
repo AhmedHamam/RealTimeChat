@@ -7,17 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Base.Api\Base.Api.csproj" />
     <ProjectReference Include="..\RealChat.Application\RealChat.Application.csproj" />
-    <ProjectReference Include="..\RealChat.Infrastructure\RealChat.Infrastructure.csproj" />
     <ProjectReference Include="..\RealTimeChat.Setup\RealTimeChat.Setup.csproj" />
   </ItemGroup>
 
