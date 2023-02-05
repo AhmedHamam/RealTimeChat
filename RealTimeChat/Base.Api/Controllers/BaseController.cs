@@ -15,20 +15,24 @@ public abstract class BaseController : ControllerBase
 {
     private ISender _mediator = null!;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    public ISender Mediator { get; protected set; } = null;
+    public ISender Mediator
+    {
+        get
+        {
+            return _mediator;
+        }
+        protected set {
+            _mediator = value;
+        }
+    }
+
 
     protected IHttpContextAccessor? Accessor =>
         HttpContext.Response.HasStarted
             ? null
             : HttpContext.RequestServices.GetRequiredService<IHttpContextAccessor>();
 
-    // public ISender Mediator => _mediator ??= HttpContext.RequestServices.GetRequiredService<ISender>();
-    /// <summary>
-    /// 
-    /// </summary>
+
     protected CancellationToken CancellationToken
     {
         get
@@ -40,15 +44,16 @@ public abstract class BaseController : ControllerBase
 
     public BaseController(ISender mediator)
     {
-        Mediator = mediator;
+        _mediator = mediator;
     }
 
-
     [NonAction]
-    public virtual ActionResult NoContent()
-        => Accessor?.HttpContext?.Response == null || Accessor.HttpContext.Response.HasStarted
-            ? new EmptyResult()
-            : new NoContentResult();
+    public new ActionResult NoContent()
+    {
+        return Accessor?.HttpContext?.Response == null || Accessor.HttpContext.Response.HasStarted
+                ? new EmptyResult()
+                : new NoContentResult();
+    }
 
     [NonAction]
     public new ActionResult Ok()
@@ -119,7 +124,7 @@ public abstract class BaseController : ControllerBase
             throw new ArgumentNullException(nameof(uri));
         }
 
-        return Accessor.HttpContext?.Response == null || Accessor.HttpContext.Response.HasStarted
+        return Accessor?.HttpContext?.Response == null || Accessor.HttpContext.Response.HasStarted
             ? new EmptyResult()
             : new CreatedResult(uri, value);
     }
