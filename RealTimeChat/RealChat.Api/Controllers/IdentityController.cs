@@ -20,8 +20,8 @@ namespace TicketManagement.Identity.API.Controllers
         [HttpPost("register")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Guid?))]
-        public async Task<ActionResult<Guid?>> RegisterUser(RegisterCommand command)
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
+        public async Task<ActionResult<string>> RegisterUser(RegisterCommand command)
         {
             return Ok(await Mediator.Send(command, CancellationToken));
         }

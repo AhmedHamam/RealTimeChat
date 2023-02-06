@@ -16,8 +16,8 @@ namespace RealChat.Domain.Domains.User
         public Gender Gender { get; set; }
         public string Avatar { get; set; }
         public string Status { get; set; }
-        public string ConnectionId { get; set; }
-        public string LastSeen { get; set; }
+        public string? ConnectionId { get; set; }
+        public string? LastSeen { get; set; }
 
 
         private readonly HashSet<UserRole> _userRoles = new();
