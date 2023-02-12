@@ -81,6 +81,7 @@ namespace Base.Infrastructure.Persistence
                 .Entries<IModifiedAuditableEntity<int?>>()
                 .Where(e => e.State == EntityState.Modified)
                 .ToList().ForEach(entry => { entry.Entity.MarkAsModified(userId); });
+            
             ChangeTracker
                 .Entries<ISoftDelete<int?>>()
                 .Where(e => e.State is EntityState.Added or EntityState.Deleted)
