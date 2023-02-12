@@ -1,6 +1,6 @@
-using System.Reflection;
-using Microsoft.Extensions.DependencyInjection;
 using Base.Extensions;
+using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace Base.Application.Security;
 

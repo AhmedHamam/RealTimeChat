@@ -1,5 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
-using Base.Application.Services.RedisCache.Models.Config;
+﻿using Base.Application.Services.RedisCache.Models.Config;
+using Microsoft.Extensions.Configuration;
 
 namespace Base.Application.Services.RedisCache.Extensions;
 

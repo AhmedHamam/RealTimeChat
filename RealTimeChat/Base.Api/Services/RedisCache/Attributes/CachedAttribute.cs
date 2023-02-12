@@ -1,13 +1,13 @@
-using System.Text;
+using Base.Application.Services.RedisCache.Extensions;
+using Base.Application.Services.RedisCache.Models.Config;
+using Base.Application.Services.RedisCache.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
-using Base.Application.Services.RedisCache.Extensions;
-using Base.Application.Services.RedisCache.Models.Config;
-using Base.Application.Services.RedisCache.Services;
+using System.Text;
 
 namespace Base.API.Services.RedisCache.Attributes;
 

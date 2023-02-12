@@ -1,7 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Base.Application.Services.RedisCache.Extensions;
+﻿using Base.Application.Services.RedisCache.Extensions;
 using Base.Application.Services.RedisCache.Services;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Base.API.Services.RedisCache;
 

@@ -1,7 +1,7 @@
-using System.Text.Json;
+using Base.Application.Exceptions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Base.Application.Exceptions;
+using System.Text.Json;
 
 namespace Base.API.Services.ExceptionHandling;
 

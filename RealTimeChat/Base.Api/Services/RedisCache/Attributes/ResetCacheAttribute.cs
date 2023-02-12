@@ -1,10 +1,10 @@
-using System.Linq.Expressions;
-using System.Reflection;
+using Base.Application.Services.RedisCache.Extensions;
+using Base.Application.Services.RedisCache.Services;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Base.Application.Services.RedisCache.Extensions;
-using Base.Application.Services.RedisCache.Services;
+using System.Linq.Expressions;
+using System.Reflection;
 
 namespace Base.API.Services.RedisCache.Attributes;
 
@@ -54,7 +54,7 @@ public class ResetCacheAttribute : Attribute, IAsyncResultFilter
     /// <returns></returns>
     public static MethodInfo MethodOf(Expression<Action> expression)
     {
-        MethodCallExpression body = (MethodCallExpression) expression.Body;
+        MethodCallExpression body = (MethodCallExpression)expression.Body;
         return body.Method;
     }
 

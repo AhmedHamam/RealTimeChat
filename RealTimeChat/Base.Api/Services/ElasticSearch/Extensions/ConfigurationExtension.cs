@@ -1,5 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
-using Base.API.Services.ElasticSearch.Models.Config;
+﻿using Base.API.Services.ElasticSearch.Models.Config;
+using Microsoft.Extensions.Configuration;
 
 namespace Base.API.Services.ElasticSearch.Extensions;
 

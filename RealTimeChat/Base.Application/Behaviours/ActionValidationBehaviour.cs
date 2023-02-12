@@ -1,6 +1,6 @@
+using Base.Application.Security;
 using MediatR;
 using Microsoft.AspNetCore.Http;
-using Base.Application.Security;
 
 namespace Base.Application.Behaviours;
 
@@ -47,7 +47,7 @@ public class ActionValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<
             }
 
             if (aborted)
-                return (TResponse) Activator.CreateInstance(typeof(TResponse))!;
+                return (TResponse)Activator.CreateInstance(typeof(TResponse))!;
         }
 
         return await next();

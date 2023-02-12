@@ -1,12 +1,12 @@
+using Base.Application.Interfaces;
+using Base.Application.Services.RedisCache.Constants;
+using Base.Application.Services.RedisCache.Extensions;
+using Base.Application.Services.RedisCache.Services;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
-using Base.Application.Interfaces;
-using Base.Application.Services.RedisCache.Constants;
-using Base.Application.Services.RedisCache.Extensions;
-using Base.Application.Services.RedisCache.Services;
 
 namespace Base.Application.Behaviours;
 

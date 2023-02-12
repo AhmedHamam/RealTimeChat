@@ -8,15 +8,15 @@ public abstract class ActionValidator<TRequest, TResponse> : IActionValidator<TR
     public abstract Task<ActionValidatorResult> Validate(TRequest request, CancellationToken cancellationToken);
 
     protected ActionValidatorResult NotFound(string? message = default) =>
-        new() {Status = ActionValidationStatus.NotFound, Message = message};
+        new() { Status = ActionValidationStatus.NotFound, Message = message };
 
     protected ActionValidatorResult Unauthorized(string? message = default) =>
-        new() {Status = ActionValidationStatus.Unauthorized, Message = message};
+        new() { Status = ActionValidationStatus.Unauthorized, Message = message };
 
     protected ActionValidatorResult Forbidden(string? message = default) =>
-        new() {Status = ActionValidationStatus.Forbidden, Message = message};
+        new() { Status = ActionValidationStatus.Forbidden, Message = message };
 
-    protected ActionValidatorResult Continue() => new() {Status = ActionValidationStatus.Continue};
+    protected ActionValidatorResult Continue() => new() { Status = ActionValidationStatus.Continue };
 }
 
 public abstract class ActionValidator<TRequest> : IActionValidator<TRequest, Unit>
@@ -25,13 +25,13 @@ public abstract class ActionValidator<TRequest> : IActionValidator<TRequest, Uni
     public abstract Task<ActionValidatorResult> Validate(TRequest request, CancellationToken cancellationToken);
 
     protected ActionValidatorResult NotFound(string? message = default) =>
-        new() {Status = ActionValidationStatus.NotFound, Message = message};
+        new() { Status = ActionValidationStatus.NotFound, Message = message };
 
     protected ActionValidatorResult Unauthorized(string? message = default) =>
-        new() {Status = ActionValidationStatus.Unauthorized, Message = message};
+        new() { Status = ActionValidationStatus.Unauthorized, Message = message };
 
     protected ActionValidatorResult Forbidden(string? message = default) =>
-        new() {Status = ActionValidationStatus.Forbidden, Message = message};
+        new() { Status = ActionValidationStatus.Forbidden, Message = message };
 
-    protected ActionValidatorResult Continue() => new() {Status = ActionValidationStatus.Continue};
+    protected ActionValidatorResult Continue() => new() { Status = ActionValidationStatus.Continue };
 }

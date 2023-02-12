@@ -48,9 +48,9 @@ public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TReque
 
         await _accessor.SendBadRequestAndAbort("Validation errors", errorsDictionary);
         if (typeof(TResponse) == typeof(string))
-            return (TResponse) Activator.CreateInstance(typeof(string), "".ToCharArray())!;
+            return (TResponse)Activator.CreateInstance(typeof(string), "".ToCharArray())!;
         if (typeof(TResponse) == typeof(Guid))
-            return (TResponse) Activator.CreateInstance(typeof(Guid), Guid.Empty)!;
-        return (TResponse) Activator.CreateInstance(typeof(TResponse))!;
+            return (TResponse)Activator.CreateInstance(typeof(Guid), Guid.Empty)!;
+        return (TResponse)Activator.CreateInstance(typeof(TResponse))!;
     }
 }

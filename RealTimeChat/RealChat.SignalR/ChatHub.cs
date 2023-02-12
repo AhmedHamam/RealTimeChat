@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 
-namespace TestApiJWT.Hubs
+namespace RealChat.SignalR
 {
     [Authorize]
     public class ChatHub : Hub

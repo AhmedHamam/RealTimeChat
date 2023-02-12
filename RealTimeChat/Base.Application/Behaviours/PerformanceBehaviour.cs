@@ -1,7 +1,7 @@
-﻿using System.Diagnostics;
-using MediatR;
+﻿using MediatR;
 using Microsoft.Extensions.Logging;
 using Serilog;
+using System.Diagnostics;
 
 namespace Base.Application.Behaviours;
 
@@ -15,8 +15,8 @@ public class PerformanceBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequ
 
     public PerformanceBehaviour(
         ILogger<TRequest> logger
-        //ICurrentUserService currentUserService,
-        //IIdentityService identityService
+    //ICurrentUserService currentUserService,
+    //IIdentityService identityService
     )
     {
         _timer = new Stopwatch();

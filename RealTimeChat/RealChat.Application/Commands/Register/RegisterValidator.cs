@@ -1,13 +1,14 @@
 ﻿using FluentValidation;
 using Microsoft.AspNetCore.Identity;
+using RealChat.Application.Commands.Login;
 using RealChat.Domain.Domains.User;
 
 namespace RealChat.Application.Commands.Register
 {
-    public class RegisterValidator : AbstractValidator<RegisterCommand>
+    public class RegisterValidator : AbstractValidator<LoginCommand>
     {
         private UserManager<ApplicationUser> _userManager;
-        public RegisterValidator(UserManager<ApplicationUser> userManager )
+        public RegisterValidator(UserManager<ApplicationUser> userManager)
         {
             _userManager = userManager;
 
@@ -45,7 +46,7 @@ namespace RealChat.Application.Commands.Register
                .NotEmpty()
                .MinimumLength(2)
                .MaximumLength(20);
-            
+
             RuleFor(x => x.LastName)
                 .NotNull()
                 .NotEmpty()

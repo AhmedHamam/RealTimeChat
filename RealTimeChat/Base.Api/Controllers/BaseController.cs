@@ -21,7 +21,8 @@ public abstract class BaseController : ControllerBase
         {
             return _mediator;
         }
-        protected set {
+        protected set
+        {
             _mediator = value;
         }
     }

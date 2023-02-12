@@ -1,8 +1,8 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Base.API.Services.Swagger.Extensions;
+using Base.API.Services.Swagger.Options;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
-using Base.API.Services.Swagger.Extensions;
-using Base.API.Services.Swagger.Options;
 
 namespace Base.API.Services.Swagger;
 
@@ -27,7 +27,7 @@ public static class ServiceCollectionExtension
         {
             c.CustomSchemaIds(x => x.FullName);
             c.OperationFilter<SwaggerFileOperationFilter>();
-            c.MapType<DateTime>(() => new OpenApiSchema {Type = "string", Format = "date"});
+            c.MapType<DateTime>(() => new OpenApiSchema { Type = "string", Format = "date" });
             c.AddAuthorizationWithJwt();
         });
         services.ConfigureOptions<ConfigureSwaggerOptions>();

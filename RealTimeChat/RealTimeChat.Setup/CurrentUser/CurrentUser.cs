@@ -1,6 +1,6 @@
-using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
 using RealChat.Domain.Enums;
+using System.Security.Claims;
 
 namespace RealTimeChat.Setup.CurrentUser;
 
@@ -14,7 +14,7 @@ public static class CurrentUser
     public static string? Email => GetClaimValue(ClaimKeys.Email);
 
     public static List<RolesEnum> Roles => GetRoles();
-    
+
     #endregion
 
     #region Helper Methods

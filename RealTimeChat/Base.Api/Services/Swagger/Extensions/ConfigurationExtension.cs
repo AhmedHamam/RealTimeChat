@@ -1,8 +1,8 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Base.API.Services.Swagger.Models.Config;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using Base.API.Services.Swagger.Models.Config;
 
 namespace Base.API.Services.Swagger.Extensions;
 

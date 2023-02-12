@@ -1,11 +1,11 @@
-﻿using System.Reflection;
+﻿using Base.API.Services.ElasticSearch.Extensions;
+using Base.API.Variables;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using Serilog.Exceptions;
 using Serilog.Sinks.Elasticsearch;
-using Base.API.Services.ElasticSearch.Extensions;
-using Base.API.Variables;
+using System.Reflection;
 
 namespace Base.API.Services.ElasticSearch;
 
@@ -24,7 +24,7 @@ public static class ServiceCollectionExtension
         IConfiguration configuration)
     {
         var config = configuration.GetElasticSearchConfig();
-        var configurationRoot = (IConfigurationRoot) configuration;
+        var configurationRoot = (IConfigurationRoot)configuration;
 
         Log.Logger = new LoggerConfiguration()
             .Enrich.FromLogContext()

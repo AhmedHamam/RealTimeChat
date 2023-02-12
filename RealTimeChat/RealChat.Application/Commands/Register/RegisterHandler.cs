@@ -1,11 +1,12 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Identity;
+using RealChat.Application.Commands.Login;
 using RealChat.Domain.Domains.User;
 using RealChat.Infrastructure;
 
 namespace RealChat.Application.Commands.Register
 {
-    public class RegisterHandler : IRequestHandler<RegisterCommand, string>
+    public class RegisterHandler : IRequestHandler<LoginCommand, string>
     {
         IdentityDatabaseContext _context;
         UserManager<ApplicationUser> _userManager;
@@ -15,7 +16,7 @@ namespace RealChat.Application.Commands.Register
             _userManager = userManager;
             _context = context;
         }
-        public async Task<string> Handle(RegisterCommand request, CancellationToken cancellationToken)
+        public async Task<string> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
             //Your business
             var user = new ApplicationUser();
@@ -24,7 +25,7 @@ namespace RealChat.Application.Commands.Register
             user.FirstName = request.FirstName;
             user.LastName = request.LastName;
             user.PhoneNumber = request.PhoneNumber;
-            
+
             user.EmailConfirmed = false;
             user.PhoneNumberConfirmed = false;
             user.LockoutEnabled = false;
@@ -37,12 +38,12 @@ namespace RealChat.Application.Commands.Register
             }
             catch (Exception ex)
             {
-                
-                return ex.Message+Environment.NewLine+"Inner"+ ex.InnerException?.Message;
+
+                return ex.Message + Environment.NewLine + "Inner" + ex.InnerException?.Message;
             }
 
-            return user.Id.ToString() ;
+            return user.Id.ToString();
         }
-        
+
     }
 }

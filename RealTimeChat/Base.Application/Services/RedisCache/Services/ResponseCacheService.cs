@@ -1,9 +1,9 @@
+using Base.Application.Services.RedisCache.Extensions;
+using Base.Application.Services.RedisCache.Models.Config;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using StackExchange.Redis;
-using Base.Application.Services.RedisCache.Extensions;
-using Base.Application.Services.RedisCache.Models.Config;
 
 namespace Base.Application.Services.RedisCache.Services;
 

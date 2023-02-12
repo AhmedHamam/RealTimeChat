@@ -1,10 +1,10 @@
 ﻿using Base.Domain.CommonInterfaces;
+using Base.Extensions;
+using Base.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Reflection;
-using Base.Extensions;
-using Base.Infrastructure.Extensions;
 
 namespace Base.Infrastructure.Persistence
 {
@@ -81,7 +81,7 @@ namespace Base.Infrastructure.Persistence
                 .Entries<IModifiedAuditableEntity<int?>>()
                 .Where(e => e.State == EntityState.Modified)
                 .ToList().ForEach(entry => { entry.Entity.MarkAsModified(userId); });
-            
+
             ChangeTracker
                 .Entries<ISoftDelete<int?>>()
                 .Where(e => e.State is EntityState.Added or EntityState.Deleted)

@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Base.API.Services.Swagger.Extensions;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
-using Base.API.Services.Swagger.Extensions;
 
 namespace Base.API.Services.Swagger;
 

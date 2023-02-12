@@ -8,8 +8,8 @@ public static class ReflectionExtensions
     {
         Type interfaceType2 = interfaceType;
         return (from t in assembly.GetTypes()
-            where t.GetInterfaces()
-                .Any((Type i) => i.IsGenericType && i.GetGenericTypeDefinition() == interfaceType2)
-            select t).ToList();
+                where t.GetInterfaces()
+                    .Any((Type i) => i.IsGenericType && i.GetGenericTypeDefinition() == interfaceType2)
+                select t).ToList();
     }
 }
