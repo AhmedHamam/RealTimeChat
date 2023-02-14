@@ -8,11 +8,11 @@ namespace RealChat.Infrastructure
         public static async Task SeedDataAsync(IdentityDatabaseContext databaseContext, UserManager<ApplicationUser> userManager)
         {
             // seed 
-            await SeedRoles(databaseContext);
-            await SeedSuperAdmin(databaseContext, userManager);
+            //await SeedRoles(databaseContext);
+            //await SeedSuperAdmin(databaseContext, userManager);
 
-            // Save changes
-            await databaseContext.SaveChangesAsync();
+            //// Save changes
+            //await databaseContext.SaveChangesAsync();
         }
 
         private static async Task SeedRoles(IdentityDatabaseContext databaseContext)
