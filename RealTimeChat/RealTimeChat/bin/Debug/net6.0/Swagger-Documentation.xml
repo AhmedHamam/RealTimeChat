@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TicketManagement.Identity.Gateway</name>
+    </assembly>
+    <members>
+        <member name="T:TicketManagement.Identity.Gateway.Helpers.DatabaseExtension">
+            <summary>
+            Extensions helpers method for database
+            </summary>
+        </member>
+        <member name="M:TicketManagement.Identity.Gateway.Helpers.DatabaseExtension.MigrateDatabase(Microsoft.Extensions.DependencyInjection.IServiceScope)">
+            <summary>
+            
+            </summary>
+            <param name="scope"></param>
+        </member>
+        <member name="M:TicketManagement.Identity.Gateway.Helpers.DatabaseExtension.SeedDatabase(Microsoft.Extensions.DependencyInjection.IServiceScope)">
+            <summary>
+            </summary>
+            <param name="scope"></param>
+        </member>
+    </members>
+</doc>
