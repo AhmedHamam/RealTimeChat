@@ -1,6 +1,15 @@
-﻿namespace RealChat.Api.Controllers
+﻿using Base.API.Controllers;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+
+namespace RealChat.Api.Controllers
 {
-    public class GroupChatController
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
+    public class GroupChatController : BaseController
     {
+        public GroupChatController(ISender mediator) : base(mediator)
+        {
+        }
     }
 }
