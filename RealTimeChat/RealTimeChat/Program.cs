@@ -4,6 +4,7 @@ using Base.API.Services.Swagger;
 using Base.Application;
 using Base.Infrastructure;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
+using Microsoft.Extensions.FileProviders;
 using RealChat.Application;
 using RealChat.Infrastructure;
 using RealTimeChat.Helpers;
@@ -66,6 +67,17 @@ app.UseBaseSwagger(app.Configuration);
 
 #endregion
 
+string folderPath = Path.Combine(Directory.GetCurrentDirectory(), "uploads");
+if (!Directory.Exists(folderPath))
+{
+    Directory.CreateDirectory(folderPath);
+}
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(folderPath),
+    RequestPath = "/uploads"
+});
 
 using (var scope = app.Services.CreateScope())
 {

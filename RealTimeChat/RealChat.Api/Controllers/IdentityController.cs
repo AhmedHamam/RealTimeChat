@@ -1,8 +1,10 @@
 ﻿using Base.API.Controllers;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting.Internal;
 using RealChat.Application.Commands.ForgetPassword;
 using RealChat.Application.Commands.Login;
 
@@ -12,8 +14,10 @@ namespace RealChat.Api.Controllers
     [Route("api/v{version:apiVersion}/[controller]")]
     public class IdentityController : BaseController
     {
-        public IdentityController(ISender mediator) : base(mediator)
+        private readonly IWebHostEnvironment _hostingEnvironment;
+        public IdentityController(ISender mediator, IWebHostEnvironment hostingEnvironment) : base(mediator)
         {
+            _hostingEnvironment = hostingEnvironment;
         }
 
         #region Commands
@@ -40,5 +44,22 @@ namespace RealChat.Api.Controllers
 
 
         #endregion
+
+        [HttpPost("upload")]
+        public async Task<IActionResult> Upload(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+                return BadRequest("Please select a file");
+
+            var fileName = Path.GetFileName(file.FileName);
+            var filePath = Path.Combine(_hostingEnvironment.ContentRootPath, "uploads", fileName);
+
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            return Ok("File uploaded successfully");
+        }
     }
 }
