@@ -75,7 +75,7 @@ namespace RealChat.Api.Controllers
         {
             if (files == null || files.Length == 0)
                 return BadRequest("Please select at least one file");
-            string fileids="";
+            string fields = "";
             foreach (var file in files)
             {
                 var fileId = Guid.NewGuid().ToString();
@@ -85,7 +85,7 @@ namespace RealChat.Api.Controllers
 
                 // create new file name with unique id and original extension
                 var newFileName = fileId + fileExtension;
-                fileids += fileId + "\n";
+                fields += fileId + "\n";
                 // save file to disk with new name
                 var filePath = Path.Combine(_hostingEnvironment.ContentRootPath,  "uploads", newFileName);
 
@@ -95,7 +95,7 @@ namespace RealChat.Api.Controllers
                 }
             }
 
-            return Ok("File uploaded successfully\n" + fileids);
+            return Ok("File uploaded successfully\n" + fields);
         }
     }
 }
