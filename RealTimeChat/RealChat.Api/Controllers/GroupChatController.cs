@@ -44,7 +44,7 @@ namespace RealChat.Api.Controllers
         //}
         [HttpPost("upload")]
         public async Task<IActionResult> Upload([FromForm]
-        IFormFile file,[FromBody]string test)
+        IFormFile file)
         {
             if (file == null || file.Length == 0)
                 return BadRequest("No file selected");
